@@ -1,9 +1,8 @@
 def new(cls, *args, **kwargs):
     if hasattr(cls, "__instance"):
         return cls.__instance
-    instance = cls.__old_new__(cls, *args, **kwargs)
-    cls.__instance = instance
-    return instance
+    cls.__instance = cls.__old_new__(cls, *args, **kwargs)
+    return cls.__instance
 
 
 def singleton(cls):
